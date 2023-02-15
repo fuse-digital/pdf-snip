@@ -14,4 +14,8 @@
         <ProjectReference Include="..\FuseDigital.PdfSnip.TestBase\FuseDigital.PdfSnip.TestBase.csproj" />
     </ItemGroup>
 
+    <ItemGroup>      
+      <EmbeddedResource Include="Documents\split-document.pdf" />
+    </ItemGroup>
+
 </Project>
