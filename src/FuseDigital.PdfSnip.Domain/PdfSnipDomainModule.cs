@@ -8,5 +8,4 @@ namespace FuseDigital.PdfSnip;
 )]
 public class PdfSnipDomainModule : AbpModule
 {
-    
 }
