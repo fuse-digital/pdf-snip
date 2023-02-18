@@ -45,9 +45,8 @@ public class PdfSnipApplicationService : ApplicationService
     
     private string GetProductVersion()
     {
-        var assembly = Assembly.GetEntryAssembly();
-        var version = FileVersionInfo.GetVersionInfo(assembly.Location);
-        return version.FileVersion;
+        var version = Assembly.GetEntryAssembly()?.GetName().Version;
+        return version?.ToString();
     }
     
     private Task DisplayHelpAsync<T>(ParserResult<T> result, IEnumerable<Error> errors)
