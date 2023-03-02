@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using FakeItEasy;
 using FuseDigital.PdfSnip.Commands.Dto;
 using FuseDigital.PdfSnip.Documents;
@@ -8,19 +8,19 @@ using Xunit;
 
 namespace FuseDigital.PdfSnip.Commands;
 
-public class SplitCommandTests : PdfSnipApplicationTestBase
+public class JoinCommandTests : PdfSnipApplicationTestBase
 {
     [Fact]
-    public async Task Should_Split_Document()
+    public async Task Should_Join_Documents()
     {
         // Arrange
         var service = A.Fake<IDocumentDomainService>();
-        var options = new SplitOptions
+        var options = new JoinOptions
         {
-            PdfDocumentPath = "split-pdf-document.pdf",
-            OutputDirectoryPath = ".",
+            OutputPdfDocumentPath = "join-pdf-documents.pdf",
+            InputDirectoryPath = "."
         };
-        var command = new SplitCommand(service)
+        var command = new JoinCommand(service)
         {
             LazyServiceProvider = GetService<IAbpLazyServiceProvider>(),
         };
@@ -29,7 +29,7 @@ public class SplitCommandTests : PdfSnipApplicationTestBase
         await command.ExecuteAsync(options);
 
         // Assert
-        A.CallTo(() => service.SplitAsync(A<SplitInput>._))
+        A.CallTo(() => service.JoinAsync(A<JoinInput>._))
             .MustHaveHappened();
     }
 }
