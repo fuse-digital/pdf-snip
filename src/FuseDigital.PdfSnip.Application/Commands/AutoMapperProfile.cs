@@ -10,5 +10,8 @@ public class AutoMapperProfile : Profile
     {
         CreateMap<SplitOptions, SplitInput>()
             .ReverseMap();
+        
+        CreateMap<JoinOptions, JoinInput>()
+            .ReverseMap();
     }
 }
