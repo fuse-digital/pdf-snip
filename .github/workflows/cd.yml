@@ -1,0 +1,28 @@
+name: pdf-snip-cd
+run-name: Publish pipeline after ${{github.event_name}} by @${{ github.actor }}
+
+on:
+  push:
+    branches:
+      - release/**
+
+jobs:
+  continuous-integration:
+    uses: ./.github/workflows/build.yml
+    with:
+      pack: true
+    secrets: inherit
+
+  publish-preview-packages:
+    uses: ./.github/workflows/publish.yml
+    needs: [ continuous-integration ]
+    with:
+      environment: preview
+    secrets: inherit
+  
+  publish-release-packages:
+    uses: ./.github/workflows/publish.yml
+    needs: [ publish-preview-packages ]
+    with:
+      environment: release
+    secrets: inherit

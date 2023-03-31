@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\common.props" />
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <PackAsTool>true</PackAsTool>
+        <ToolCommandName>pdfsnip</ToolCommandName>
+        <PackageOutputPath>./nupkg</PackageOutputPath>
+        <RootNamespace>FuseDigital.PdfSnip.Cli</RootNamespace>
+        <UserSecretsId>FuseDigital.PdfSnip.Cli</UserSecretsId>
+        <PackageId>FuseDigital.PdfSnip</PackageId>
+        <Authors>Fuse Digital</Authors>
+        <Company>Fuse Digital (PTY) Limited</Company>
+        <Copyright>Copyright (c) Fuse Digital (PTY) LTD 2023</Copyright>
+        <Description>##TODO</Description>
+        <PackageProjectUrl>https://github.com/fuse-digital/pdf-snip</PackageProjectUrl>
+        <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RespositoryType>git</RespositoryType>
+        <RepositoryUrl>https://github.com/fuse-digital/pdf-snip</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+        <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
+        <PackageReference Include="Figgle" Version="0.4.1" />
+        <PackageReference Include="Crayon" Version="2.0.69" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.Autofac" Version="7.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\FuseDigital.PdfSnip.Application\FuseDigital.PdfSnip.Application.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+</Project>

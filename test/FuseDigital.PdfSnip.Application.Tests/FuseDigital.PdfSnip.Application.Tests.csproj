@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <RootNamespace>FuseDigital.PdfSnip</RootNamespace>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\FuseDigital.PdfSnip.Application\FuseDigital.PdfSnip.Application.csproj" />
+        <ProjectReference Include="..\FuseDigital.PdfSnip.Domain.Tests\FuseDigital.PdfSnip.Domain.Tests.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
+    </ItemGroup>
+</Project>

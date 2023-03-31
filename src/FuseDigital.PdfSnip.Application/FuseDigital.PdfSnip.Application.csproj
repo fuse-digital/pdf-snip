@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>FuseDigital.PdfSnip</RootNamespace>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.AutoMapper" Version="7.0.1" />
+        <PackageReference Include="Volo.Abp.Ddd.Application" Version="7.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\FuseDigital.PdfSnip.Domain\FuseDigital.PdfSnip.Domain.csproj" />
+    </ItemGroup>
+</Project>

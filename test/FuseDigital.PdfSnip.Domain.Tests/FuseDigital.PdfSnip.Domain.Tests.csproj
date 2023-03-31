@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <RootNamespace>FuseDigital.PdfSnip</RootNamespace>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\FuseDigital.PdfSnip.TestBase\FuseDigital.PdfSnip.TestBase.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>      
+      <EmbeddedResource Include="Documents\split-document.pdf" />
+    </ItemGroup>
+
+</Project>
