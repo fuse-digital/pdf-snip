@@ -13,5 +13,8 @@ public class AutoMapperProfile : Profile
         
         CreateMap<JoinOptions, JoinInput>()
             .ReverseMap();
+
+        CreateMap<RotatePageOptions, RotatePageInput>()
+            .ReverseMap();
     }
 }

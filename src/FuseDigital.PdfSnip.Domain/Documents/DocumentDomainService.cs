@@ -69,4 +69,22 @@ public class DocumentDomainService : DomainService, IDocumentDomainService
         outputDocument.Save(input.OutputPdfDocumentPath);
         return Task.FromResult(output);
     }
+
+    public Task<RotatePageOutput> RotatePageAsync(RotatePageInput input)
+    {
+        var document = PdfReader.Open(input.PdfDocumentPath, PdfDocumentOpenMode.Import, PdfReadAccuracy.Moderate);
+        var output = new RotatePageOutput();
+        if (document.PageCount < input.PageNumber)
+        {
+            output.Add($"The document only contains {document.PageCount} pages, and you requested page number {input.PageNumber} to be rotated");
+            return Task.FromResult(output);
+        }
+        
+        var page = document.Pages[input.PageNumber - 1];
+        page.Rotate = (page.Rotate + input.RotationDegrees) % 360;
+        document.Save(input.PdfDocumentPath);
+        output.Add($"Rotate page {input.PageNumber} by {input.RotationDegrees} degrees and save the document {input.PdfDocumentPath}");
+        
+        return Task.FromResult(output);
+    }
 }
