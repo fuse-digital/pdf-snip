@@ -8,4 +8,6 @@ public interface IDocumentDomainService : IDomainService
     Task<SplitOutput> SplitAsync(SplitInput input);
 
     Task<JoinOutput> JoinAsync(JoinInput input);
+
+    Task<RotatePageOutput> RotatePageAsync(RotatePageInput input);
 }
